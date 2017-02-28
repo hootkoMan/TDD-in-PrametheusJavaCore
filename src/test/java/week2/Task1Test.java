@@ -13,17 +13,19 @@ public class Task1Test {
     Task1 task1 = new Task1();
 
     @Test(dataProvider = "rootsOfEquation")
-    void executeQuadraticEquation(double k1, double k2, double k3, double x1, double x2) {
-        Task1.Root root = task1.solveEquation(k1, k2, k3);
+    void executeQuadraticEquation(Double a, Double b, Double c, Double x1, Double x2) {
+        Task1.Root root = task1.solveEquation(a, b, c);
 
-        assertEquals(x1, root.x1);
-        assertEquals(x2, root.x2);
+        assertEquals(x1, root.x1, "param: " + a + ", " + b + ", " + c);
+        assertEquals(x2, root.x2, "param: " + a + ", " + b + ", " + c);
     }
 
     @DataProvider
     Object[][] rootsOfEquation() {
         return new Object[][]{
-            {3, 2.5, -0.5, 2, 3},
+            {2.0, 3.0, 4.0, null, null},
+            {1.0, 4.0, -21.0, 3.0, -7.0},
+//            {3, 2.5, -0.5, calc, calc},
         };
     }
 }
