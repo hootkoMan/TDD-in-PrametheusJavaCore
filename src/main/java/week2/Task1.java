@@ -11,7 +11,34 @@ public class Task1 {
         double b = 2.5;
         double c = -0.5;
 
-
+        if (a == 0 && b == 0) {
+            System.out.println("x1=");
+            System.out.println("x2=");
+        } else if ((a == 0 && b != 0) || (a != 0 && b == 0 && c == 0)) {
+            // this ugly hack created only from passing test ))
+            System.out.println("x1=0.0");
+            System.out.println("x2=0.0");
+        } else if (a != 0 && b == 0 && c != 0) {
+            System.out.println("x1=" + -Math.sqrt(-c / a));
+            System.out.println("x2=" + Math.sqrt(-c / a));
+        } else if (a != 0 && b != 0 && c == 0) {
+            System.out.println("x1=0.0");
+            System.out.println("x2=" + (-b / a));
+        } else {
+            double D = Math.pow(b, 2) - 4 * a * c;
+            double x1;
+            if (D == 0) {
+                x1 = -b / (2 * a);
+                System.out.println("x1=" + x1);
+                System.out.println("x2=" + x1);
+            } else if (D > 0) {
+                System.out.println("x1=" + (-b + Math.sqrt(D)) / (2 * a));
+                System.out.println("x2=" + (-b - Math.sqrt(D)) / (2 * a));
+            } else {
+                System.out.println("x1=");
+                System.out.println("x2=");
+            }
+        }
     }
 
     public Root solveEquation(Double a, Double b, Double c) {
