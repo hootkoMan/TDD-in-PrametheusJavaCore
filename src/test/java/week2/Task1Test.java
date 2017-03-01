@@ -16,8 +16,8 @@ public class Task1Test {
     void executeQuadraticEquation(Double a, Double b, Double c, Double x1, Double x2) {
         Task1.Root root = task1.solveEquation(a, b, c);
 
-        assertEquals(x1, root.x1, "param: " + a + ", " + b + ", " + c);
-        assertEquals(x2, root.x2, "param: " + a + ", " + b + ", " + c);
+        assertEquals(root.x1, x1 ,"param: " + a + ", " + b + ", " + c);
+        assertEquals(root.x2, x2, "param: " + a + ", " + b + ", " + c);
     }
 
     @DataProvider
@@ -25,7 +25,10 @@ public class Task1Test {
         return new Object[][]{
             {2.0, 3.0, 4.0, null, null},
             {1.0, 4.0, -21.0, 3.0, -7.0},
-//            {3, 2.5, -0.5, calc, calc},
+            {3.0, 2.5, -0.5, 0.16666666666666666, -1.0},
+            {0.0, 0.0, 9999999999.0, null, null},
+            {0.0, 10, 0.0, 0.0, 0.0},
+            {3.0, -18.0, 27.0, 3.0, 3.0},
         };
     }
 }
