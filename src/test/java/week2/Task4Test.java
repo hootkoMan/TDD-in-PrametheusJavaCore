@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 public class Task4Test {
     Task4 task4 = new Task4();
 
-    @Test(dataProvider = "sortedData", timeOut = 500)
+    @Test(dataProvider = "sortedData", timeOut = 100)
     public void binarySearchTest(int[] sortedArr, int findNumber, int expectedIndex ) {
 
-        int actualIndex = task4.findIndex(sortedArr);
+        int actualIndex = task4.findIndex(sortedArr, findNumber);
         Assert.assertEquals(actualIndex, expectedIndex);
 
     }
@@ -28,7 +28,10 @@ public class Task4Test {
             {new int[]{3, 6, 7, 10, 34, 56, 60}, 34, 4},
             {new int[]{3, 6, 7, 10, 34, 56, 60}, 56, 5},
             {new int[]{3, 6, 7, 10, 34, 56, 60}, 60, 6},
+            {new int[]{3, 6, 7, 10, 34, 56, 60}, 1, -1},
             {new int[]{3, 6, 7, 10, 34, 56, 60}, 13, -1},
+            {new int[]{3, 6, 7, 10, 34, 56, 60}, 55, -1},
+            {new int[]{3, 6, 7, 10, 34, 56, 60}, 80, -1},
         };
     }
 }
